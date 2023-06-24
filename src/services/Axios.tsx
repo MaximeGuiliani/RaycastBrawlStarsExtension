@@ -2,7 +2,6 @@ import axios, { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
 import Axios from "./caller.service";
 
-
 export const useAxiosFetch = (params: AxiosRequestConfig<any>) => {
   const [data, setData] = useState<any>(null);
   const [error, setError] = useState<any>(null);
@@ -21,8 +20,7 @@ export const useAxiosFetch = (params: AxiosRequestConfig<any>) => {
       .finally(() => {
         setLoading(false);
       });
-  }
-
+  };
 
   useEffect(() => {
     fetchData();

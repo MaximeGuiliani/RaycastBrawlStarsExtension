@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { searchClub } from "../clubUtils";
 import { Action, ActionPanel, Detail, Icon, LaunchType, List } from "@raycast/api";
-
-import icons from "../../statics/icons.json";
 import PlayerComponent from "./PlayerInfo";
+import { IClubData } from "../models/IClubData";
+
 interface IClubIdProps {
   id: string;
 }
@@ -29,11 +29,7 @@ const ClubComponent = ({ id }: IClubIdProps) => {
   if (!clubData) {
     return (
       <List onSearchTextChange={setSearchText}>
-        <List.EmptyView
-          icon={Icon.CircleProgress}
-          title="Loading Club Data"
-          description="Work in progress."
-        />
+        <List.EmptyView icon={Icon.CircleProgress} title="Loading Club Data" description="Work in progress." />
       </List>
     );
   }
@@ -129,7 +125,11 @@ const ClubComponent = ({ id }: IClubIdProps) => {
               }
               shortcut={{ modifiers: ["cmd"], key: "m" }}
             />
-            <Action.OpenInBrowser title="Open in Brawlify" icon={Icon.Globe} url={"https://brawlify.com/stats/club/" + clubData.tag.replace("#", "%23")} />
+            <Action.OpenInBrowser
+              title="Open in Brawlify"
+              icon={Icon.Globe}
+              url={"https://brawlify.com/stats/club/" + clubData.tag.replace("#", "%23")}
+            />
           </ActionPanel>
         }
       />

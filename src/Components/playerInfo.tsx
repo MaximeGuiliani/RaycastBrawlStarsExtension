@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { searchPlayer } from "../playerUtils";
 import { Action, ActionPanel, Detail, Icon, List } from "@raycast/api";
 import ClubComponent from "./clubInfo";
+import { IPlayerData } from "../models/IPlayerData";
 
 interface IPlayerIdProps {
   id: string;
@@ -28,11 +29,7 @@ const PlayerComponent = ({ id }: IPlayerIdProps) => {
   if (!playerData) {
     return (
       <List onSearchTextChange={setSearchText}>
-        <List.EmptyView
-          icon={Icon.CircleProgress}
-          title="Loading Player Data"
-          description="Work in progress."
-        />
+        <List.EmptyView icon={Icon.CircleProgress} title="Loading Player Data" description="Work in progress." />
       </List>
     );
   }
@@ -44,13 +41,15 @@ const PlayerComponent = ({ id }: IPlayerIdProps) => {
           description="Try With Another Player Id."
           icon={Icon.Person}
           title="No Player Found"
-
-            actions={
-              <ActionPanel>
-                <Action.Push title="Search Player" icon={Icon.Sidebar} target={<PlayerComponent id={"" + searchText} />} />
-              </ActionPanel>
-            }
-          
+          actions={
+            <ActionPanel>
+              <Action.Push
+                title="Search Player"
+                icon={Icon.Sidebar}
+                target={<PlayerComponent id={"" + searchText} />}
+              />
+            </ActionPanel>
+          }
         />
       </List>
     );
@@ -105,15 +104,20 @@ const PlayerComponent = ({ id }: IPlayerIdProps) => {
             />
           </Detail.Metadata>
         }
-        actions={<ActionPanel>
-          <Action.Push 
-          title="Show Club"
-          icon={Icon.Sidebar}
-          target={<ClubComponent id={"" + playerData.club.tag.replace("#","")} />}
-          />
-          <Action.OpenInBrowser title="Open in Brawlify" icon={Icon.Globe} url={"https://brawlify.com/stats/profile/" + playerData.tag.replace("#", "%23")} />
-
-        </ActionPanel>}
+        actions={
+          <ActionPanel>
+            <Action.Push
+              title="Show Club"
+              icon={Icon.Sidebar}
+              target={<ClubComponent id={"" + playerData.club.tag.replace("#", "")} />}
+            />
+            <Action.OpenInBrowser
+              title="Open in Brawlify"
+              icon={Icon.Globe}
+              url={"https://brawlify.com/stats/profile/" + playerData.tag.replace("#", "%23")}
+            />
+          </ActionPanel>
+        }
       />
     </>
   );

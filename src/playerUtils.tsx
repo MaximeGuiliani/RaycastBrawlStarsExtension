@@ -1,9 +1,9 @@
 import { getPreferenceValues, showHUD } from "@raycast/api";
 import Axios from "./services/caller.service";
 import { personalAccessToken } from "./preferences";
+import { IPlayerData } from "./models/IPlayerData";
 
-const searchPlayer = async (swName:string ) => {
-  
+const searchPlayer = async (swName: string) => {
   let playerData: IPlayerData = {
     name: "",
     club: {
@@ -39,14 +39,12 @@ const searchPlayer = async (swName:string ) => {
     nameColor: "",
   };
 
-
   await Axios.request({
     method: "GET",
-    url:"players/%23"+ swName,
+    url: "players/%23" + swName,
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "Bearer " + personalAccessToken,
+      Authorization: "Bearer " + personalAccessToken,
     },
   })
     .then((res) => {

@@ -4,16 +4,19 @@ interface IClubData {
   description: string;
   trophies: number;
   requiredTrophies: number;
-  members:[{
-    icon: {
-      id: number;
+  members: [
+    {
+      icon: {
+        id: number;
+      };
+      tag: string;
+      name: string;
+      trophies: number;
+      role: string;
+      nameColor: string;
     }
-    tag: string;
-    name: string;
-    trophies: number;
-    role: string;
-    nameColor: string;
-  }]
+  ];
   type: string;
   badgeId: number;
 }
+export type { IClubData };

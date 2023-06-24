@@ -6,15 +6,19 @@ export default function SearchPokemon() {
   const brawlerList = brawlers.list;
 
   return (
-    <Grid throttle searchBarPlaceholder="Search Brawlers By Bame" navigationTitle="Brawlers List"  fit={Grid.Fit.Fill}  columns={7} >
+    <Grid
+      throttle
+      searchBarPlaceholder="Search Brawlers By Bame"
+      navigationTitle="Brawlers List"
+      fit={Grid.Fit.Fill}
+      columns={7}
+    >
       <Grid.Section title="Brawlers">
         {brawlerList.map((brawler) => {
           return (
             <Grid.Item
               key={brawler.id}
-              content={
-                brawler.imageUrl2
-              }
+              content={brawler.imageUrl2}
               title={brawler.name}
               keywords={[brawler.id.toString(), brawler.name]}
               actions={
