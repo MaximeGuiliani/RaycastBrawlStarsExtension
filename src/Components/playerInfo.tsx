@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { searchPlayer } from "../playerUtils";
-import { Action, ActionPanel, Detail, Icon, LaunchType, List, launchCommand } from "@raycast/api";
+import { Action, ActionPanel, Detail, Icon, List } from "@raycast/api";
+import ClubComponent from "./clubInfo";
 
 interface IPlayerIdProps {
   id: string;
@@ -25,37 +26,31 @@ const PlayerComponent = ({ id }: IPlayerIdProps) => {
   }, []);
 
   if (!playerData) {
-    return <Detail markdown="Loading player data ." />;
+    return (
+      <List onSearchTextChange={setSearchText}>
+        <List.EmptyView
+          icon={Icon.CircleProgress}
+          title="Loading Player Data"
+          description="Work in progress."
+        />
+      </List>
+    );
   }
 
   if (playerData.name == "") {
     return (
       <List onSearchTextChange={setSearchText}>
         <List.EmptyView
-          description="Try with another player id."
+          description="Try With Another Player Id."
           icon={Icon.Person}
-          title="No player found"
-          actions={
-            <ActionPanel>
-              <Action
-                icon={Icon.Person}
-                title="Search another player"
-                onAction={() =>
-                  searchPlayer(searchText).then((data) => {
-                    setPlayerData(data);
-                  })
-                }
-              />
+          title="No Player Found"
 
-              <Action
-                icon={Icon.Globe}
-                title="Hello World"
-                onAction={() =>
-                  launchCommand({ name: "hello-world", arguments: { id: searchText }, type: LaunchType.UserInitiated })
-                }
-              />
-            </ActionPanel>
-          }
+            actions={
+              <ActionPanel>
+                <Action.Push title="Search Player" icon={Icon.Sidebar} target={<PlayerComponent id={"" + searchText} />} />
+              </ActionPanel>
+            }
+          
         />
       </List>
     );
@@ -83,34 +78,42 @@ const PlayerComponent = ({ id }: IPlayerIdProps) => {
         metadata={
           <Detail.Metadata>
             <Detail.Metadata.TagList title="Wins">
-              <Detail.Metadata.TagList.Item icon={Icon.Crown} text={"solo "  +playerData["soloVictories"]}  color={"#aae900"} />
-              <Detail.Metadata.TagList.Item icon={Icon.Crown} text={"duo "  +playerData["duoVictories"] }  color={"#00FFFF"} />
-              <Detail.Metadata.TagList.Item icon={Icon.Crown} text={"3vs3 "  +playerData["3vs3Victories"] }  color={"#eed535"} />
+              <Detail.Metadata.TagList.Item
+                icon={Icon.Crown}
+                text={"Solo " + playerData["soloVictories"]}
+                color={"#aae900"}
+              />
+              <Detail.Metadata.TagList.Item
+                icon={Icon.Crown}
+                text={"Duo " + playerData["duoVictories"]}
+                color={"#00FFFF"}
+              />
+              <Detail.Metadata.TagList.Item
+                icon={Icon.Crown}
+                text={"3vs3 " + playerData["3vs3Victories"]}
+                color={"#eed535"}
+              />
             </Detail.Metadata.TagList>
             <Detail.Metadata.Separator />
-            <Detail.Metadata.Label title="bestRoboRumbleTime" text={playerData["bestRoboRumbleTime"] + " s"} />
-            <Detail.Metadata.Label title="bestTimeAsBigBrawler" text={playerData["bestTimeAsBigBrawler"] + " s"} />
+            <Detail.Metadata.Label title="Best Robo Rumble Time" text={playerData["bestRoboRumbleTime"] + " s"} />
+            <Detail.Metadata.Label title="Best Time As Big Brawler" text={playerData["bestTimeAsBigBrawler"] + " s"} />
             <Detail.Metadata.Separator />
-            <Detail.Metadata.Link title="More info" target={"https://brawlify.com/stats/profile/" + playerData.tag.replace('#',"%23")} text={playerData.name} />
+            <Detail.Metadata.Link
+              title="More info"
+              target={"https://brawlify.com/stats/profile/" + playerData.tag.replace("#", "%23")}
+              text={playerData.name}
+            />
           </Detail.Metadata>
         }
-        actions={
-          <ActionPanel>
-            <Action
-              icon={Icon.Person}
-              title="Search another player"
-              onAction={() => launchCommand({ name: "hello-world", type: LaunchType.UserInitiated })}
-            />
+        actions={<ActionPanel>
+          <Action.Push 
+          title="Show Club"
+          icon={Icon.Sidebar}
+          target={<ClubComponent id={"" + playerData.club.tag.replace("#","")} />}
+          />
+          <Action.OpenInBrowser title="Open in Brawlify" icon={Icon.Globe} url={"https://brawlify.com/stats/profile/" + playerData.tag.replace("#", "%23")} />
 
-            <Action
-              icon={Icon.Globe}
-              title="Hello World"
-              onAction={() =>
-                launchCommand({ name: "hello-world", arguments: { id: searchText }, type: LaunchType.UserInitiated })
-              }
-            />
-          </ActionPanel>
-        }
+        </ActionPanel>}
       />
     </>
   );

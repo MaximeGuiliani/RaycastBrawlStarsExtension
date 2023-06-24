@@ -24,6 +24,7 @@ export default function SearchPokemon() {
                     icon={Icon.Sidebar}
                     target={<BrawlerComponent id={"" + brawler.id} />}
                   />
+                  <Action.OpenInBrowser title="Open Brawler on Brawlify" icon={Icon.Globe} url={brawler.link} />
                 </ActionPanel>
               }
             />

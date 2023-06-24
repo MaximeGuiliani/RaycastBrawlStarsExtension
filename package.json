@@ -9,14 +9,14 @@
   "commands": [
     {
       "name": "brawlers",
-      "title": "All Brawlers",
+      "title": "Brawlers",
       "description": "List Of All Brawlers",
       "mode": "view"
     },
     {
       "name": "club",
       "title": "Search For A Club",
-      "description": "Search For A Club",
+      "description": "Search For A Club With Its Tag (# is not required)",
       "mode": "view",
       "arguments": [
         {
@@ -28,28 +28,14 @@
       ]
     },
     {
-      "name": "brawler",
-      "title": "Search For A Brawler",
-      "description": "Search For A Brawler With His Id",
-      "mode": "view",
-      "arguments": [
-        {
-          "name": "id",
-          "placeholder": "Brawler Id",
-          "required": true,
-          "type": "text"
-        }
-      ]
-    },
-    {
       "name": "player",
       "title": "Search For A Player",
-      "description": "Search For A Player With His Tag (Do Not Include The #)",
+      "description": "Search For A Player With His Tag (# is not required)",
       "mode": "view",
       "arguments": [
         {
           "name": "id",
-          "placeholder": "PlayerId",
+          "placeholder": "Player Id",
           "required": true,
           "type": "text"
         }

@@ -3,7 +3,6 @@ import Axios from "./services/caller.service";
 import { personalAccessToken } from "./preferences";
 
 const searchPlayer = async (swName:string ) => {
-  console.log("searching player with id : ", swName);
   
   let playerData: IPlayerData = {
     name: "",
@@ -43,7 +42,7 @@ const searchPlayer = async (swName:string ) => {
 
   await Axios.request({
     method: "GET",
-    url:"%23"+ swName,
+    url:"players/%23"+ swName,
     headers: {
       "Content-Type": "application/json",
       Authorization:
@@ -57,7 +56,6 @@ const searchPlayer = async (swName:string ) => {
       console.log(err);
     });
 
-  //await showHUD(`Searching player with id : "${swName}"! 🎉`);
   return playerData;
 };
 

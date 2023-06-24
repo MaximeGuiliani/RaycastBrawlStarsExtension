@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { searchPlayer } from "../playerUtils";
-import { Action, ActionPanel, Detail, Icon, LaunchType, List, launchCommand } from "@raycast/api";
+import { Action, ActionPanel, Detail, Icon } from "@raycast/api";
 
 import brawlers from "../../statics/FullBrawlersInfo.json";
 interface IBrawlerIdProps {
@@ -11,11 +9,10 @@ const BrawlerComponent = ({ id }: IBrawlerIdProps) => {
   const brawlerData = brawlers.list.find((brawler) => "" + brawler.id == id);
 
   if (!brawlerData) {
-    return <Detail markdown="No brawler found" />;
+    return <Detail markdown="No Brawler Found!" />;
   }
 
   const markdown = `
-
   # ${brawlerData.name} 
 
   <img src="${brawlerData.imageUrl2}"  width="100" height="100" /> 
@@ -24,7 +21,7 @@ const BrawlerComponent = ({ id }: IBrawlerIdProps) => {
   ${brawlerData.description}
 
 
-  ## <img src="${brawlerData.starPowers[0].imageUrl}" alt= "gadget" width="20" height="20">  Star Powers
+  ## <img src="${brawlerData.starPowers[0].imageUrl}" alt= "star power" width="20" height="20">  Star Powers
 
 
 
@@ -80,22 +77,12 @@ ${brawlerData.gadgets[0].description}
             </Detail.Metadata.TagList>
 
             <Detail.Metadata.Separator />
-            <Detail.Metadata.Link title="More info" target={brawlerData.link} text={brawlerData.name} />
+            <Detail.Metadata.Link title="More Info" target={brawlerData.link} text={brawlerData.name} />
           </Detail.Metadata>
         }
         actions={
           <ActionPanel>
-            <Action
-              icon={Icon.Person}
-              title="Search another player"
-              onAction={() => launchCommand({ name: "hello-world", type: LaunchType.UserInitiated })}
-            />
-
-            <Action
-              icon={Icon.Globe}
-              title="Hello World"
-              onAction={() => launchCommand({ name: "hello-world", type: LaunchType.UserInitiated })}
-            />
+            <Action.OpenInBrowser title="Open in Brawlify" icon={Icon.Globe} url={brawlerData.link} />
           </ActionPanel>
         }
       />
