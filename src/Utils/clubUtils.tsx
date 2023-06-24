@@ -1,6 +1,6 @@
-import Axios from "./services/caller.service";
-import { personalAccessToken } from "./preferences";
-import { IClubData } from "./models/IClubData";
+import Axios from "../services/caller.service";
+import { personalAccessToken } from "../preferences";
+import { IClubData } from "../models/IClubData";
 
 const searchClub = async (swName: string) => {
   let clubData: IClubData = {

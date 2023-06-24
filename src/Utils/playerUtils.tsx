@@ -1,7 +1,7 @@
 import { getPreferenceValues, showHUD } from "@raycast/api";
-import Axios from "./services/caller.service";
-import { personalAccessToken } from "./preferences";
-import { IPlayerData } from "./models/IPlayerData";
+import Axios from "../services/caller.service";
+import { personalAccessToken } from "../preferences";
+import { IPlayerData } from "../models/IPlayerData";
 
 const searchPlayer = async (swName: string) => {
   let playerData: IPlayerData = {

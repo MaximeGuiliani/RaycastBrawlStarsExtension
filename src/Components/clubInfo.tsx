@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { searchClub } from "../clubUtils";
+import { searchClub } from "../Utils/clubUtils";
 import { Action, ActionPanel, Detail, Icon, LaunchType, List } from "@raycast/api";
 import PlayerComponent from "./PlayerInfo";
 import { IClubData } from "../models/IClubData";

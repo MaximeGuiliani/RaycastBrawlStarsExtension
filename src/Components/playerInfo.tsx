@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { searchPlayer } from "../playerUtils";
+import { searchPlayer } from "../Utils/playerUtils";
 import { Action, ActionPanel, Detail, Icon, List } from "@raycast/api";
 import ClubComponent from "./clubInfo";
 import { IPlayerData } from "../models/IPlayerData";

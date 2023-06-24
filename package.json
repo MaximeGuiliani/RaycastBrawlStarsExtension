@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "brawlstars",
-  "title": "Brawl Stars API",
+  "title": "Brawl Stars Search",
   "description": "Extension to search for Brawl Stars players, clubs and brawlers",
   "icon": "brawstarLogo.png",
   "author": "Maxime_GUILIANI",
@@ -9,13 +9,13 @@
   "commands": [
     {
       "name": "brawlers",
-      "title": "Brawlers",
+      "title": "Search Brawlers",
       "description": "List Of All Brawlers",
       "mode": "view"
     },
     {
       "name": "club",
-      "title": "Search For A Club",
+      "title": "Search Club",
       "description": "Search For A Club With Its Tag (# is not required)",
       "mode": "view",
       "arguments": [
@@ -29,7 +29,7 @@
     },
     {
       "name": "player",
-      "title": "Search For A Player",
+      "title": "Search Player",
       "description": "Search For A Player With His Tag (# is not required)",
       "mode": "view",
       "arguments": [
