@@ -4,6 +4,9 @@
   "title": "Brawl Stars Search",
   "description": "Extension to search for Brawl Stars players, clubs and brawlers",
   "icon": "brawstarLogo.png",
+  "categories": [
+    "Other"
+  ],
   "author": "Maxime_GUILIANI",
   "license": "MIT",
   "commands": [
