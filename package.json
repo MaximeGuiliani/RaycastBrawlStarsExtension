@@ -1,35 +1,41 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "test",
-  "title": "Test",
-  "description": "Extension to test Raycast's API",
-  "icon": "command-icon.png",
+  "name": "brawlstars",
+  "title": "Brawl Stars API",
+  "description": "Extension to search for Brawl Stars players, clubs and brawlers",
+  "icon": "brawstarLogo.png",
   "author": "Maxime_GUILIANI",
   "license": "MIT",
   "commands": [
-
-    {
-      "name":"hello-world",
-      "title": "Hello World",
-      "icon": "command-icon.png",
-      "description": "A simple command that shows a notification",
-      "mode": "view"
-    },
     {
       "name": "brawlers",
-      "title": "All brawlers",
-      "description": "List of all brawlers",
+      "title": "All Brawlers",
+      "description": "List Of All Brawlers",
       "mode": "view"
     },
     {
       "name": "club",
-      "title": "Search for a club",
-      "description": "Search for a club",
+      "title": "Search For A Club",
+      "description": "Search For A Club",
       "mode": "view",
       "arguments": [
         {
           "name": "id",
-          "placeholder": "clubId",
+          "placeholder": "Club Id",
+          "required": true,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "name": "brawler",
+      "title": "Search For A Brawler",
+      "description": "Search For A Brawler With His Id",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "id",
+          "placeholder": "Brawler Id",
           "required": true,
           "type": "text"
         }
@@ -37,8 +43,8 @@
     },
     {
       "name": "player",
-      "title": "Search for a player",
-      "description": "Search for a player",
+      "title": "Search For A Player",
+      "description": "Search For A Player With His Tag (Do Not Include The #)",
       "mode": "view",
       "arguments": [
         {
