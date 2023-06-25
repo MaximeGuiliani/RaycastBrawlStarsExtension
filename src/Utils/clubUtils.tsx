@@ -1,27 +1,9 @@
 import Axios from "../services/caller.service";
-import { personalAccessToken } from "../preferences";
-import { IClubData } from "../models/IClubData";
+import { personalAccessToken } from "./preferences";
+import { IClubData, emptyClubData } from "../models/IClubData";
 
 const searchClub = async (swName: string) => {
-  let clubData: IClubData = {
-    tag: "",
-    name: "",
-    description: "",
-    trophies: 0,
-    requiredTrophies: 0,
-    members: [
-      {
-        icon: { id: 0 },
-        tag: "",
-        name: "",
-        trophies: 0,
-        role: "",
-        nameColor: "",
-      },
-    ],
-    type: "",
-    badgeId: 0,
-  };
+  let clubData: IClubData = emptyClubData;
 
   await Axios.request({
     method: "GET",

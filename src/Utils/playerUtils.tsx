@@ -1,43 +1,9 @@
-import { getPreferenceValues, showHUD } from "@raycast/api";
 import Axios from "../services/caller.service";
-import { personalAccessToken } from "../preferences";
-import { IPlayerData } from "../models/IPlayerData";
+import { personalAccessToken } from "./preferences";
+import { IPlayerData, emptyPlayerData } from "../models/IPlayerData";
 
 const searchPlayer = async (swName: string) => {
-  let playerData: IPlayerData = {
-    name: "",
-    nameColor: "",
-    club: {
-      tag: "",
-      name: "",
-    },
-    "3vs3Victories": 0,
-    isQualifiedFromChampionshipChallenge: false,
-    icon: {
-      id: 0,
-    },
-    tag: "",
-    trophies: 0,
-    expLevel: 0,
-    expPoints: 0,
-    highestTrophies: 0,
-    powerPlayPoints: 0,
-    highestPowerPlayPoints: 0,
-    soloVictories: 0,
-    duoVictories: 0,
-    bestRoboRumbleTime: 0,
-    bestTimeAsBigBrawler: 0,
-    brawlers: [
-      {
-        id: 0,
-        rank: 0,
-        trophies: 0,
-        highestTrophies: 0,
-        power: 0,
-        name: "",
-      },
-    ],
-  };
+  let playerData: IPlayerData = emptyPlayerData;
 
   await Axios.request({
     method: "GET",

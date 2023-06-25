@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
 import Axios from "./caller.service";
 

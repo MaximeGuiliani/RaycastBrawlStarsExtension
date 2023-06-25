@@ -23,7 +23,6 @@ AxiosPure.interceptors.response.use(
     return response;
   },
   (error) => {
-    //console.log("AXIOS ERROR INTERCEPT---->", error);
     return Promise.reject(error);
   }
 );
