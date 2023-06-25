@@ -2,7 +2,7 @@
 
 ## **API Key**
 
-You must get an API key from [Brawl Star API](https://developer.brawlstars.com/#/).
+You must get an API key from [Brawl Stars API](https://developer.brawlstars.com/#/).
 
 ## **Introduction**
 
