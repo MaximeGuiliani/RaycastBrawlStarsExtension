@@ -1,12 +1,12 @@
-# Brawl Star Search
+# Brawl Stars Search
 
 ## **API Key**
 
-You need to get an API key from [Brawl Star API](https://developer.brawlstars.com/#/).
+You must get an API key from [Brawl Star API](https://developer.brawlstars.com/#/).
 
 ## **Introduction**
 
-This is a simple search engine for Brawl Star. It is based on the [Brawl Star API](https://developer.brawlstars.com/#/).
+This is a simple search engine for Brawl Stars. It is based on the [Brawl Stars API](https://developer.brawlstars.com/#/).
 
 And also use the [Brawlify API](https://brawlapi.com/) to get info on brawlers and icons.
 
@@ -14,7 +14,7 @@ And also use the [Brawlify API](https://brawlapi.com/) to get info on brawlers a
 
 ### **Search**
 
-You can search for players, clubs, brawlers. The search result will be displayed in the table below.
+You can search for players, clubs, and brawlers. The search result will be displayed in the table below.
 
 ### **Players**
 
@@ -34,7 +34,7 @@ You can search for clubs by club tag. The club tag is a string of 9 characters, 
 
 ### **Brawlers**
 
-You can search for brawlers by brawler name. The brawler name is a string of characters. You can find your brawler name in the game. The brawler name is unique for each brawler.
+You can search for brawlers by brawler name. The brawler's name is a string of characters. You can find your brawler name in the game. The brawler's name is unique for each brawler.
 
 # **Brawler LIST**
 
@@ -46,20 +46,20 @@ You can search for brawlers by brawler name. The brawler name is a string of cha
 
 # About Me
 
-Hey, I'm Maxime I'm 22. I'm a student in software developement.
+Hey, I'm Maxime I'm 22. I'm a student in software development.
 
-You will find in this repository my first raycast extension for my curent favorite game : BRAWL STAR.
+You will find in this repository my first Raycast extension for my current favorite game: BRAWL STARS.
 
 # Utils
 
-This code was produced thanks to :
+This code was produced thanks to the following:
 
 - [Raycast API](https://developers.raycast.com/)
-- [Brawl Star API](https://developer.brawlstars.com/#/)
+- [Brawl Stars API](https://developer.brawlstars.com/#/)
 - [Brawlify API](https://brawlapi.com/)
 
 ## TODO :
 
 - Player brawlers list
 - battle log
-- sort brawler by rarity and recenteness
+- sort brawlers by rarity and recentness
