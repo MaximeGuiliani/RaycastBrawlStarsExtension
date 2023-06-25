@@ -20,17 +20,17 @@ You can search for players, clubs, and brawlers. The search result will be displ
 
 You can search for players by player tag. The player tag is a string of 9 characters, starting with a hash character (# Optional). You can find your player tag in the game. The player tag is unique for each player.
 
-![Brawler](./metadata/brawlstars-5.png)
+![Brawler](./ReadmeAssets/brawlstars-5.png)
 
 ### **Clubs**
 
 You can search for clubs by club tag. The club tag is a string of 9 characters, starting with a hash character (# Optional). You can find your club tag in the game. The club tag is unique for each club.
 
-![Brawler](./metadata/brawlstars-3.png)
+![Brawler](./ReadmeAssets/brawlstars-3.png)
 
 # **List Of Players From A Club**
 
-![Brawler](./metadata/brawlstars-4.png)
+![Brawler](./ReadmeAssets/brawlstars-4.png)
 
 ### **Brawlers**
 
@@ -38,11 +38,11 @@ You can search for brawlers by brawler name. The brawler's name is a string of c
 
 # **Brawler LIST**
 
-![Brawler](./metadata/brawlstars-1.png)
+![Brawler](./ReadmeAssets/brawlstars-1.png)
 
 # **Brawler INFO**
 
-![Brawler](./metadata/brawlstars-2.png)
+![Brawler](./ReadmeAssets/brawlstars-2.png)
 
 # About Me
 
