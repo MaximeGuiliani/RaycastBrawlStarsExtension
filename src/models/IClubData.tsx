@@ -20,7 +20,6 @@ interface IClubData {
   badgeId: number;
 }
 
-
 export const emptyClubData: IClubData = {
   tag: "",
   name: "",

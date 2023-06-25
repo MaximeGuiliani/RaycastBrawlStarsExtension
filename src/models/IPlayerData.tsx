@@ -46,8 +46,7 @@ interface IPlayerData {
   nameColor: string;
 }
 
-
-export const emptyPlayerData:IPlayerData = {
+export const emptyPlayerData: IPlayerData = {
   name: "",
   nameColor: "",
   club: {
