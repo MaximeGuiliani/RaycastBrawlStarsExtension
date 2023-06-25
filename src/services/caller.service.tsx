@@ -14,9 +14,7 @@ Axios.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log("AXIOS ERROR INTERCEPT---->", error);
-    if (!error.response) return Promise.reject(error);
-    return Promise.reject(error);
+    return Promise.reject(error.message);
   }
 );
 
@@ -25,8 +23,7 @@ AxiosPure.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log("AXIOS ERROR INTERCEPT---->", error);
-    if (!error.response) return Promise.reject(error);
+    //console.log("AXIOS ERROR INTERCEPT---->", error);
     return Promise.reject(error);
   }
 );

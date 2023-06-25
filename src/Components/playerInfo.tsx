@@ -3,6 +3,7 @@ import { searchPlayer } from "../Utils/playerUtils";
 import { Action, ActionPanel, Detail, Icon, List } from "@raycast/api";
 import ClubComponent from "./clubInfo";
 import { IPlayerData } from "../models/IPlayerData";
+import Error403 from "./BadAPIKey";
 
 interface IPlayerIdProps {
   id: string;
@@ -10,6 +11,8 @@ interface IPlayerIdProps {
 
 const PlayerComponent = ({ id }: IPlayerIdProps) => {
   const [playerData, setPlayerData] = useState<IPlayerData>();
+
+  const [error, setError] = useState<any>();
 
   const [searchText, setSearchText] = useState("");
 
@@ -19,13 +22,38 @@ const PlayerComponent = ({ id }: IPlayerIdProps) => {
         const data = await searchPlayer(id);
         setPlayerData(data);
       } catch (error) {
-        console.log(error);
+        setError(error);
       }
     };
 
     fetchPlayerData();
   }, []);
-
+  if (error) {
+    if (typeof error === "string") {
+      if (error.includes("403")) {
+        return <Error403 error={error} />;
+      } else if (error.includes("404")) {
+        return (
+          <List onSearchTextChange={setSearchText}>
+            <List.EmptyView
+              description="Try With Another Player Id."
+              icon={Icon.Person}
+              title="No Player Found"
+              actions={
+                <ActionPanel>
+                  <Action.Push
+                    title="Search Player"
+                    icon={Icon.Sidebar}
+                    target={<PlayerComponent id={"" + searchText} />}
+                  />
+                </ActionPanel>
+              }
+            />
+          </List>
+        );
+      }
+    }
+  }
   if (!playerData) {
     return (
       <List onSearchTextChange={setSearchText}>
@@ -34,26 +62,6 @@ const PlayerComponent = ({ id }: IPlayerIdProps) => {
     );
   }
 
-  if (playerData.name == "") {
-    return (
-      <List onSearchTextChange={setSearchText}>
-        <List.EmptyView
-          description="Try With Another Player Id."
-          icon={Icon.Person}
-          title="No Player Found"
-          actions={
-            <ActionPanel>
-              <Action.Push
-                title="Search Player"
-                icon={Icon.Sidebar}
-                target={<PlayerComponent id={"" + searchText} />}
-              />
-            </ActionPanel>
-          }
-        />
-      </List>
-    );
-  }
   const markdown = `
 
   # ${playerData.name} ${playerData.tag}

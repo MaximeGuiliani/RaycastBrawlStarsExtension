@@ -6,6 +6,7 @@ import { IPlayerData } from "../models/IPlayerData";
 const searchPlayer = async (swName: string) => {
   let playerData: IPlayerData = {
     name: "",
+    nameColor: "",
     club: {
       tag: "",
       name: "",
@@ -36,7 +37,6 @@ const searchPlayer = async (swName: string) => {
         name: "",
       },
     ],
-    nameColor: "",
   };
 
   await Axios.request({
@@ -51,7 +51,7 @@ const searchPlayer = async (swName: string) => {
       playerData = res.data;
     })
     .catch((err) => {
-      console.log(err);
+      throw err;
     });
 
   return playerData;
